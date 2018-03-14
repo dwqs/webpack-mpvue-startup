@@ -1,0 +1,25 @@
+{
+    "presets": [
+      [
+        "env", {
+          "targets": {
+            "browsers": [
+              "last 5 versions",
+              "Android >= 4.0", 
+              "iOS >= 8",
+              "safari > 8",
+              "not ie <= 8"
+            ]
+          },
+          "modules": false,
+          "useBuiltIns": "entry",
+          "loose": true
+        }
+      ],
+      "stage-2"
+    ]{{#if_eq stateConf 'mobx'}},
+    "plugins": [
+      "transform-decorators-legacy"
+    ]
+    {{/if_eq}}
+}
