@@ -21,6 +21,12 @@ module.exports = {
             "message" : "Project description",
             "default" : "A new Vue.js project"
         },
+        "port": {
+            "type"    : "string",
+            "required": false,
+            "message" : "client port",
+            "default" : 8080
+        },
         "state": {
             "type": "confirm",
             "message": "Use state management tools?"
