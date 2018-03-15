@@ -21,7 +21,7 @@ Above command will init your project with this template, and associate it with t
  ## 状态全局共享
  由于目前 mpvue 并不支持全局注入 `vuex`，所以各页面之间并不能共享 store；如果你想使用 `vuex`，可以用一个曲线的方式进行 store 的全局共享：将 `store` 打包到 `vendor.js` 里面去。
 
-Vue 代码经过打包之后，会提取 commons chunk 打包到 `vendor.js` 中，这个 js 文件是每个页面的入口文件所依赖的。在应用初始化的时候初始化全局的 `store`， 更改 `CommonsChunkPlugin`： 
+ * Vue 代码经过打包之后，会提取 commons chunk 打包到 `vendor.js` 中，这个 js 文件是每个页面的入口文件所依赖的。在应用初始化的时候初始化全局的 `store`， 更改 `CommonsChunkPlugin`： 
 
 ```js
 
@@ -37,6 +37,17 @@ new webpack.optimize.CommonsChunkPlugin({
     }
 }),
 // ...
+```
+
+* 直接在原型上定义 `$store`。 Vuex 会在组件的 `beforeCreate` 钩子中将 `store` 实例挂载到组件实例上去，代码见 [vuexInit](https://github.com/vuejs/vuex/blob/dev/src/mixin.js#L22-L33)，因而可以在应用初始化时直接将 `store` 实例定义在原型上：
+
+```js
+// ...
+import Vue from 'vue';
+import store from 'path/to/store';
+
+Vue.prototype.$store = store;
+//...
 ```
 
 ## TODO
