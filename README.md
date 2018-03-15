@@ -39,6 +39,8 @@ new webpack.optimize.CommonsChunkPlugin({
 // ...
 ```
 
+这种方式的缺点是不能使用 Vuex 提供的 `map*` 函数，如 `mapActions`、`mapGetters` 等，因为这些是 `this.$store` 的一个语法糖，而 mpvue 没法全局注入 Vuex，因而组件实例上并没有 `$store`，所以只能直接访问 `store` 实例进行相关操作。
+
 * 直接在原型上定义 `$store`。 Vuex 会在组件的 `beforeCreate` 钩子中将 `store` 实例挂载到组件实例上去，代码见 [vuexInit](https://github.com/vuejs/vuex/blob/dev/src/mixin.js#L22-L33)，因而可以在应用初始化时直接将 `store` 实例定义在原型上：
 
 ```js
@@ -49,6 +51,8 @@ import store from 'path/to/store';
 Vue.prototype.$store = store;
 //...
 ```
+
+这样每个组件实例上都会 `$store`，可以使用 Vuex 的完整功能。
 
 ## TODO
 
