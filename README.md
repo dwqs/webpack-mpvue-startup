@@ -53,7 +53,3 @@ Vue.prototype.$store = store;
 ```
 
 这样每个组件实例上都会 `$store`，可以使用 Vuex 的完整功能。
-
-## TODO
-
-* 增加对 [Revuejs](https://github.com/dwqs/revuejs) 的支持
