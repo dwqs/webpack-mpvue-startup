@@ -14,7 +14,7 @@
         "commitmsg": "npx commitlint -e"
     },
     "dependencies": {
-        "mpvue": "^1.0.3"{{#if state}},{{/if}}
+        "mpvue": "^1.0.5"{{#if state}},{{/if}}
         {{#if_eq stateConf 'vuex'}}
         "vuex": "^3.0.1"
         {{/if_eq}}
@@ -47,8 +47,8 @@
         "husky": "^0.14.3",
         "less": "^3.0.1",
         "less-loader": "^4.1.0",
-        "mpvue-loader": "^1.0.4",
-        "mpvue-template-compiler": "^1.0.3",
+        "mpvue-loader": "^1.0.7",
+        "mpvue-template-compiler": "^1.0.5",
         "mpvue-webpack-target": "^1.0.0",
         "optimize-css-assets-webpack-plugin": "^3.2.0",
         "postcss-loader": "^2.1.1",
