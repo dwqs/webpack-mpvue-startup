@@ -41,7 +41,7 @@ const buildWebpackConfig = merge(baseWebpackConfig, {
                     module.resource &&
                     /\.js$/.test(module.resource) &&
                     module.resource.indexOf('node_modules') >= 0
-                ) || /store/.test(module.resource);;
+                );
             }
         }),
 

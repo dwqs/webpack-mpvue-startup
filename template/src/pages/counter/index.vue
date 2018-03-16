@@ -16,41 +16,38 @@
 import store from '@src/mobx/store.js';
 {{/if_eq}}
 {{#if_eq stateConf 'vuex'}}
-import store from '@src/vuex/store.js';
+import { mapGetters, mapActions } from 'vuex';
 {{/if_eq}}
 
 export default {
+    {{#if_eq stateConf 'vuex'}}
+    computed: {
+        ...mapGetters({
+            count: 'getCount'
+        })
+    },
+    methods: {
+        ...mapActions([
+            'increment',
+            'decrement'
+        ])
+    }
+    {{/if_eq}}
     {{#if_eq stateConf 'mobx'}}
     fromMobx: {
         test: store.test
     },
-    {{/if_eq}}
-    {{#if_eq stateConf 'vuex'}}
-    computed: {
-        count () {
-            return store.state.count;
-        }
-    },
-    {{/if_eq}}
+
     methods: {
         increment () {
-            {{#if_eq stateConf 'mobx'}}
             this.changeCount('+');
-            {{/if_eq}}
-            {{#if_eq stateConf 'vuex'}}
-            store.commit('increment');
-            {{/if_eq}}
         },
 
         decrement () {
-            {{#if_eq stateConf 'mobx'}}
             this.changeCount('-');
-            {{/if_eq}}
-            {{#if_eq stateConf 'vuex'}}
-            store.commit('decrement');
-            {{/if_eq}}
         }
     },
+    {{/if_eq}}
 
     mounted () {
         console.log('ssss---- counter', this.count);

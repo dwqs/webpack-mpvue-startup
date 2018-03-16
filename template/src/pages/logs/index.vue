@@ -19,7 +19,7 @@ import card from '@components/card'
 import store from '@src/mobx/store.js';
 {{/if_eq}}
 {{#if_eq stateConf 'vuex'}}
-import store from '@src/vuex/store.js';
+import { mapGetters } from 'vuex';
 {{/if_eq}}
 
 export default {
@@ -39,9 +39,9 @@ export default {
     {{/if_eq}}
     {{#if_eq stateConf 'vuex'}}
     computed: {
-        count () {
-            return store.state.count;
-        }
+         ...mapGetters({
+            count: 'getCount'
+        })
     },
     {{/if_eq}}
 

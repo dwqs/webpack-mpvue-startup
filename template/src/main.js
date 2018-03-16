@@ -1,11 +1,15 @@
-import Vue from 'vue'
-import App from './App'
+import Vue from 'vue';
+import App from './App';
+{{#if_eq stateConf 'vuex'}}
+import store from './vuex/index';
 
-Vue.config.productionTip = false
-App.mpType = 'app'
+Vue.prototype.$store = store;
+{{/if_eq}}
+Vue.config.productionTip = false;
+App.mpType = 'app';
 
-const app = new Vue(App)
-app.$mount()
+const app = new Vue(App);
+app.$mount();
 
 export default {
     // 这个字段走 app.json
