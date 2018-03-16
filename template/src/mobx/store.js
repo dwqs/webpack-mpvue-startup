@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import {observable, isObservable, toJS} from 'mobx';
+import { observable, isObservable, toJS } from 'mobx';
 import VueMobx from 'vue-mobx';
 
 import TestModel from './test';
@@ -12,7 +12,7 @@ Vue.version = '2.0.1';
 Vue.use(VueMobx, {
     toJS: toJS, // must
     isObservable: isObservable, // must
-    observable: observable,  // optional
+    observable: observable // optional
 });
 
 // models
