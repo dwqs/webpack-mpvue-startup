@@ -31,7 +31,7 @@ export default {
             'increment',
             'decrement'
         ])
-    }
+    },
     {{/if_eq}}
     {{#if_eq stateConf 'mobx'}}
     fromMobx: {
