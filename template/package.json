@@ -14,7 +14,7 @@
         "commitmsg": "npx commitlint -e"
     },
     "dependencies": {
-        "mpvue": "^1.0.7"{{#if state}},{{/if}}
+        "mpvue": "^1.0.9"{{#if state}},{{/if}}
         {{#if_eq stateConf 'vuex'}}
         "vuex": "^3.0.1"
         {{/if_eq}}
@@ -47,14 +47,14 @@
         "husky": "^0.14.3",
         "less": "^3.0.1",
         "less-loader": "^4.1.0",
-        "mpvue-loader": "^1.0.9",
-        "mpvue-template-compiler": "^1.0.7",
+        "mpvue-loader": "^1.0.11",
+        "mpvue-template-compiler": "^1.0.9",
         "mpvue-webpack-target": "^1.0.0",
         "optimize-css-assets-webpack-plugin": "^3.2.0",
         "postcss-loader": "^2.1.3",
         "postcss-mpvue-wxss": "^1.0.0",
         "progress-bar-webpack-plugin": "^1.11.0",
-        "px2rpx-loader": "^0.1.8",
+        "px2rpx-loader": "^0.1.9",
         "rimraf": "^2.6.2",
         "url-loader": "^1.0.1",
         "vue-style-loader": "^4.0.2",
